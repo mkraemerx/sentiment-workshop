@@ -1,6 +1,8 @@
 #!/bin/sh
 
 # export INST_NUM=2 or 3 or.. before running this
+# then do
+# curl https://raw.githubusercontent.com/mkraemerx/sentiment-workshop/master/infra/setup.sh | bash
 
 mkdir ~/dev
 cd ~/dev/

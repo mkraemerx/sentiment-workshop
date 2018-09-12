@@ -52,7 +52,7 @@ print(f'val len {len(val_ds.examples)}')
 print(f'test len {len(tst_ds.examples)}')
 
 vec = torchtext.vocab.Vectors('embed_tweets_de_100D_fasttext',
-                              cache='/Users/michel/Downloads/')
+                              cache='/home/ubuntu/dev/')
 # validation + test data should by no means influence the model, so build the vocab just on trn
 f_text.build_vocab(trn_ds, vectors=vec)
 # ALT: f_text.build_vocab(trn_ds, max_size=20000)
