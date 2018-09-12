@@ -175,9 +175,13 @@ def evaluate(model, iterator, criterion, metric):
             epoch_meter_fn += meter[3].item()
 
     if epoch_meter_tp == 0:
-    recall = float(epoch_meter_tp) / (epoch_meter_tp + epoch_meter_fn)
-    precision = float(epoch_meter_tp) / (epoch_meter_tp + epoch_meter_fp)
-    f_score = 2 * precision * recall / (precision + recall)
+        recall = 0
+        precision = 0
+        f_score = 0
+    else:
+        recall = float(epoch_meter_tp) / (epoch_meter_tp + epoch_meter_fn)
+        precision = float(epoch_meter_tp) / (epoch_meter_tp + epoch_meter_fp)
+        f_score = 2 * precision * recall / (precision + recall)
     return epoch_loss / len(iterator), (epoch_meter_tp + epoch_meter_tn) / (epoch_meter_tp + epoch_meter_tn + epoch_meter_fp + epoch_meter_fn), recall, precision, f_score
 
 
