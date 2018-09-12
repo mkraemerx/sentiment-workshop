@@ -20,7 +20,7 @@ sudo add-apt-repository -y ppa:certbot/certbot
 sudo apt-get update
 sudo apt-get install -y certbot
 
-sudo certbot certonly -n --standalone --cert-name letsencrypt-cert --agree-tos --email michael.kraemer@innoq.com -d "c{$INST_NUM}.int.postlab.de"
+sudo certbot certonly -n --standalone --cert-name letsencrypt-cert --agree-tos --email michael.kraemer@innoq.com -d "c$INST_NUM.int.postlab.de"
 sudo chgrp -R adm /etc/letsencrypt/archive
 sudo chgrp -R adm /etc/letsencrypt/live
 sudo chmod -R g+rx /etc/letsencrypt/archive
