@@ -3,7 +3,7 @@
 * AMI Deep Learning AMI (Ubuntu) Version 14.0 (ami-0089d61bf6a518044)
 * c2.2xlarge as CPU instance
 * 
-ssh -i ~/innoq/dev/aws/michelkraemer.pem ubuntu@ec2-18-194-139-231.eu-central-1.compute.amazonaws.com
+ssh -i ~/.ssh/aws-sentiment-workshop ubuntu@c1.int.postlab.de
 
 # Weiterführende Links zu
 ## NLP Deutsch
@@ -24,6 +24,8 @@ ssh -i ~/innoq/dev/aws/michelkraemer.pem ubuntu@ec2-18-194-139-231.eu-central-1.
 ## Bücher
 * Python for Data Analysis, 2nd Edition (Wes McKinney)
 
+## Andere Links
+* [Paperspace](https://www.paperspace.com/)
 
 
 Credits:
