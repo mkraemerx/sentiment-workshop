@@ -16,7 +16,7 @@ import random
 from TwitterPipeline import TwitterPipeline
 
 # some constants
-SEED = 762
+SEED = 7623
 # IN_FILE = 'germeval2018.try.txt'
 IN_FILE = 'germeval2018.training.txt'
 IN_FILE_TEST = 'germeval2018.test.txt'
@@ -186,9 +186,9 @@ def evaluate(model, iterator, criterion, metric):
 
 
 EMB_SIZE = 100
-HID_SIZE = 100
-NUM_RNN_LAYERS = 3
-DROPOUT = 0.7
+HID_SIZE = 70
+NUM_RNN_LAYERS = 2
+DROPOUT = 0.8
 BIDIRECTIONAL = True
 NUM_EPOCH = 7
 
@@ -199,6 +199,8 @@ optimizer = optim.Adam(model.parameters())
 criterion = nn.BCEWithLogitsLoss()
 
 model.embedding.weight.data.copy_(f_text.vocab.vectors)
+
+print(f'EMB_SIZE={EMB_SIZE} HID_SIZE={HID_SIZE} DROPOUT={DROPOUT}')
 
 # TRAINING
 for epoch in range(NUM_EPOCH):

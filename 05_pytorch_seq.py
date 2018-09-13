@@ -50,11 +50,13 @@ print(f'train len {len(trn_ds.examples)}')
 print(f'val len {len(val_ds.examples)}')
 print(f'test len {len(tst_ds.examples)}')
 
-vec = torchtext.vocab.Vectors('embed_tweets_de_100D_fasttext',
-                              cache='/Users/michel/Downloads/')
+# vec = torchtext.vocab.Vectors('embed_tweets_de_100D_fasttext',
+#                              cache='/Users/michel/Downloads/')
+
+# build vocab
 # validation + test data should by no means influence the model, so build the vocab just on trn
-f_text.build_vocab(trn_ds, vectors=vec)
-# ALT: f_text.build_vocab(trn_ds, max_size=20000)
+#f_text.build_vocab(trn_ds, vectors=vec)
+f_text.build_vocab(trn_ds, max_size=20000)
 f_lemma.build_vocab(trn_ds)
 f_label.build_vocab(trn_ds)
 
@@ -146,7 +148,6 @@ def evaluate(model, iterator, criterion, metric):
 
 EMB_SIZE = 100
 HID_SIZE = 200
-NUM_LIN = 3
 NUM_EPOCH = 5
 
 # RNN variant SETUP
@@ -154,7 +155,7 @@ model = SimpleRNN(len(f_text.vocab), EMB_SIZE, HID_SIZE)
 optimizer = optim.SGD(model.parameters(), lr=1e-3)
 criterion = nn.BCEWithLogitsLoss()
 
-model.embedding.weight.data.copy_(f_text.vocab.vectors)
+# model.embedding.weight.data.copy_(f_text.vocab.vectors)
 
 # TRAINING
 for epoch in range(NUM_EPOCH):
